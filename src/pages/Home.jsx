@@ -24,6 +24,22 @@ export const Home = () => {
 		}
 	};
 
+	const deleteContact = async (id) => {
+		try {
+			const response = await fetch(`https://playground.4geeks.com/contact/agendas/Lalba10col/contacts/${id}`, {
+				method: "DELETE"
+			});
+			if (!response.ok) throw new Error("Error eliminando el contacto");
+	
+			// Actualizar el estado eliminando el contacto de la lista
+			setStore({
+				contacts: getStore().contacts.filter(contact => contact.id !== id)
+			});
+		} catch (error) {
+			console.error("Error:", error);
+		}
+	}
+
 	useEffect(() => {
 		obtenerContactos();
 	}, []);
