@@ -6,6 +6,8 @@ const CreateNewContact = () => {
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [address, setAddress] = useState("");
+    const [image, setImage] = useState("");
+
     const handleRegisterContact = async () => {
         const newContact = {
             "name": name,
@@ -39,36 +41,42 @@ const CreateNewContact = () => {
     return (
         <div>
             <form>
-                <div className="mb-3">
+                <div className="mt-3 mb-3 mx-3">
                     <label htmlFor="exampleInputName" className="form-label">Name</label>
                     <input type="text" className="form-control" id="exampleInputName" value={name} onChange={(event) => {
                         setName(event.target.value)
                     }} />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 mx-3">
                     <label htmlFor="exampleInputPhone" className="form-label">Phone</label>
                     <input type="text" className="form-control" id="exampleInputPhone" value={phone} onChange={(event) => {
                         setPhone(event.target.value)
                     }} />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 mx-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                     <input type="email" className="form-control" id="exampleInputEmail1" value={email} onChange={(event) => {
                         setEmail(event.target.value)
                     }} />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 mx-3">
                     <label htmlFor="exampleInputAddress" className="form-label">Address</label>
                     <input type="text" className="form-control" id="exampleInputAddress" value={address} onChange={(event) => {
                         setAddress(event.target.value)
                     }} />
+                    </div>
 
-                </div>
+                    {/* <div className="mb-3 mx-3">
+                        <label htmlFor="exampleInputImage" className="form-label">Cargar Imagen</label>
+                        <input type="text" className="form-control" id="exampleInputImage" value={image} onChange={(event) => {
+                        setImage(event.target.value)
+                    }}  />
+                    </div> */}
 
-                <button type="button" className="btn btn-primary" onClick={handleRegisterContact}>Register Contact</button>
+                    <button type="button" className="btn btn-primary mx-3" onClick={handleRegisterContact}>Register Contact</button>
             </form>
 
         </div>

@@ -26,7 +26,16 @@ export default function storeReducer(store, action = {}) {
       return {
         ...store,
         contacts: contacts
-      }
+      };
+
+    //BORRADO DE CONTACTO
+    case "delete_contact":
+      return {
+        ...store,
+        contacts: store.contacts.filter(
+          (contact) => contact.id !== action.payload.id
+        ),
+      };
     default:
       throw Error('Unknown action.');
   }
